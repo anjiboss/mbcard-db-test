@@ -5,7 +5,7 @@ const connectDB = () => {
       process.env.DB_URI,
       {
         useCreateIndex: true,
-        useFindAndModify: true,
+        useFindAndModify: false,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       },

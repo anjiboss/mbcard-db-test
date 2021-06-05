@@ -7,23 +7,8 @@ const {
   saveSNS,
 } = require("./saveInfo");
 
-const addInfoUser = (username, res, userInfo) => {
+const addInfoUser = (username, userInfo, cb) => {
   const { contact, customLink, customSetting, info, sns } = userInfo;
-  if (contact) {
-    saveContact(contact);
-  }
-  if (customLink) {
-    saveCustomLink(customLink);
-  }
-  if (customSetting) {
-    saveCustomSetting(customSetting);
-  }
-  if (info) {
-    saveInfo(info);
-  }
-  if (sns) {
-    saveSNS(sns);
-  }
   // Check If User Existed
   try {
     User.findOne({ username: username }, (e, user) => {
@@ -33,10 +18,26 @@ const addInfoUser = (username, res, userInfo) => {
       if (!user) {
         res.send("No User");
       } else {
+        if (contact) {
+          saveContact(username, contact);
+        }
+        if (customLink) {
+          saveCustomLink(username, customLink);
+        }
+        if (customSetting) {
+          saveCustomSetting(username, customSetting);
+        }
+        if (info) {
+          saveInfo(username, info);
+        }
+        if (sns) {
+          saveSNS(username, sns);
+        }
       }
+      cb();
     });
   } catch (error) {
-    console.log(error);
+    cb(error);
   }
 };
 

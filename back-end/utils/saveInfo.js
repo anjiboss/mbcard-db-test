@@ -1,21 +1,73 @@
-const saveContact = (contact) => {
-  console.log(contact);
+const User = require("../models/User");
+
+const saveContact = async (username, contact, cb) => {
+  try {
+    let updatedUser = await User.findOneAndUpdate(
+      { username: username },
+      {
+        contact: contact,
+      }
+    );
+    console.log(updatedUser);
+  } catch (e) {
+    if (e) console.log(e);
+  }
 };
 
-const saveCustomLink = (customLink) => {
-  console.log(customLink);
+const saveCustomLink = async (username, customLink, cb) => {
+  try {
+    let updatedUser = await User.findOneAndUpdate(
+      { username: username },
+      {
+        customLink: customLink,
+      }
+    );
+    console.log(updatedUser);
+  } catch (e) {
+    if (e) console.log(e);
+  }
 };
 
-const saveCustomSetting = (customSetting) => {
-  console.log(customSetting);
+const saveCustomSetting = async (username, customSetting, cb) => {
+  try {
+    let updatedUser = await User.findOneAndUpdate(
+      { username: username },
+      {
+        customeSetting: customSetting,
+      }
+    );
+    console.log(updatedUser);
+  } catch (e) {
+    if (e) console.log(e);
+  }
 };
 
-const saveInfo = (info) => {
-  console.log(info);
+const saveInfo = async (username, info, cb) => {
+  try {
+    let updatedUser = await User.findOneAndUpdate(
+      { username: username },
+      {
+        info: info,
+      }
+    );
+    console.log(updatedUser);
+  } catch (e) {
+    if (e) console.log(e);
+  }
 };
 
-const saveSNS = (sns) => {
-  console.log(sns);
+const saveSNS = async (username, sns, cb) => {
+  try {
+    let updatedUser = await User.findOneAndUpdate(
+      { username: username },
+      {
+        sns: sns,
+      }
+    );
+    console.log(updatedUser);
+  } catch (e) {
+    if (e) console.log(e);
+  }
 };
 
 module.exports = {
