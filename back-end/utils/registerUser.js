@@ -8,7 +8,6 @@ const registerUser = async (userInfo, res) => {
     User.find(
       { $or: [{ username: username }, { email: email }] },
       async (e, user) => {
-        console.log(user);
         if (user.toString() !== "") {
           res.send("User Existed");
         } else {
@@ -35,7 +34,7 @@ const registerUser = async (userInfo, res) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 

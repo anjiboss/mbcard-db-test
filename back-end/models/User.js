@@ -64,22 +64,20 @@ const UserSchema = new mongoose.Schema({
         required: false,
         default: null,
       },
-
-      customLink: {
-        have: Boolean,
-        name: {
-          type: String,
-          required: false,
-          default: null,
-        },
-        url: {
-          type: String,
-          required: false,
-          default: null,
-        },
-      },
     },
   ],
+  customLink: {
+    name: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    url: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
   setting: {
     type: String,
     required: false,
