@@ -2,14 +2,17 @@ const User = require("../models/User");
 
 const registerUser = async (userInfo, res) => {
   const { username, email, password } = userInfo;
-  console.log(username);
+  console.log(userInfo);
   // Check If User Is Existed
   try {
     User.find(
       { $or: [{ username: username }, { email: email }] },
       async (e, user) => {
         if (user.toString() !== "") {
-          res.send("User Existed");
+          res.json({
+            success: false,
+            error: "User Existed",
+          });
         } else {
           const user = new User({
             username: username,

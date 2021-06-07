@@ -12,7 +12,17 @@ router.get("/:username", (req, res) => {
           error: e.message,
         });
       } else {
-        res.json(user);
+        if (!user) {
+          res.json({
+            success: false,
+            error: "no user",
+          });
+        } else {
+          res.json({
+            success: true,
+            user: user,
+          });
+        }
       }
     });
   } catch (error) {
