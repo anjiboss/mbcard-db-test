@@ -1,0 +1,32 @@
+.form {
+  width: 70vw;
+  height: 400px;
+  margin: auto;
+  text-align: center;
+  padding-top: 70px;
+  background: #d5ddbc;
+  border-radius: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  text-align: center;
+  border: 2px solid #937b63;
+  border-radius: 10px;
+  width: 200px;
+  height: 25px;
+  background: #f2f5e8;
+  transition: 0.25s;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+  width: 250px;
+  border: 2px solid #354812;
+  outline: none;
+}
+h1 {
+  text-align: center;
+}
+a {
+  text-decoration: none;
+}

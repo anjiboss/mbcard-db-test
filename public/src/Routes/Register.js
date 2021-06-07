@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../css/form.css";
+
+// Component
+import Count from "../Components/Count";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -7,6 +11,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [repassword, setRePassword] = useState("");
   const [error, setError] = useState("");
+
+  const [sendSuccess, setSendSuccess] = useState(false);
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -26,15 +32,17 @@ const Register = () => {
     const result = await res.json();
     if (result.success === false) {
       setError("Error Message : " + result.error);
+    } else {
+      setSendSuccess(true);
     }
   };
 
   return (
     <>
       <h1>Register Page</h1>
-      <h5>{error}</h5>
-      <div className="register">
-        <form onSubmit={registerHandler}>
+      <div className="form">
+        {sendSuccess ? <Count /> : <h5>{error}</h5>}
+        <form autoComplete="off" onSubmit={registerHandler}>
           <div className="form-input">
             <h4>Username</h4>
             <input
@@ -82,13 +90,15 @@ const Register = () => {
               }}
               style={
                 password !== repassword && password !== ""
-                  ? { border: "2px solid red" }
-                  : { border: "2px solid green" }
+                  ? { color: "red" }
+                  : { color: "green" }
               }
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <button className="btn" type="submit">
+            Submit
+          </button>
         </form>
         <div className="have-user">
           <p>Already Have Account?</p>

@@ -1,6 +1,9 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+// Import Component
+import Navbar from "./Components/Navbar";
+
 // Import Route Component
 import AddInfo from "./Routes/AddInfo";
 import Error from "./Routes/Error";
@@ -12,6 +15,7 @@ function App() {
   return (
     <div>
       <Router>
+        <Navbar></Navbar>
         <Switch>
           <Route exact path="/">
             <Home />

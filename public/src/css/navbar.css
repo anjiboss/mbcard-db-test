@@ -1,0 +1,35 @@
+.header-nav {
+  width: 100vw;
+  height: 10vh;
+  background-color: #345511;
+}
+
+ul {
+  height: 100%;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+}
+
+li {
+  width: 20%;
+  height: 100%;
+  text-align: center;
+}
+
+.link {
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  font-weight: 700;
+  color: #dcfffd;
+  display: grid;
+  place-items: center;
+}
+.link p {
+  display: block;
+}
+.link:hover {
+  background-color: #dcfffd;
+  color: #345511;
+}
