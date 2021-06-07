@@ -6,6 +6,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRePassword] = useState("");
+  const [error, setError] = useState("");
 
   const registerHandler = async (e) => {
     e.preventDefault();
@@ -23,12 +24,15 @@ const Register = () => {
     });
 
     const result = await res.json();
-    console.log(result);
+    if (result.success === false) {
+      setError("Error Message : " + result.error);
+    }
   };
 
   return (
     <>
       <h1>Register Page</h1>
+      <h5>{error}</h5>
       <div className="register">
         <form onSubmit={registerHandler}>
           <div className="form-input">
