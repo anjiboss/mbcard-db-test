@@ -1,0 +1,11 @@
+.form {
+  height: inherit;
+  min-height: 400px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+}
+.sns {
+  width: 70%;
+  background-color: #eef0e7;
+}
